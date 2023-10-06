@@ -21,3 +21,4 @@ for (lw_alp = 'a'; lw_alp <= 'z'; lw_alp++)
 putchar('\n');
 return (0);
 }
+

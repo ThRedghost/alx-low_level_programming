@@ -23,3 +23,4 @@ putchar(up_alp);
 putchar('\n');
 return (0);
 }
+

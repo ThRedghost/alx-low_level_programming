@@ -19,3 +19,4 @@ putchar(digits[i]);
 putchar('\n');
 return (0);
 }
+
