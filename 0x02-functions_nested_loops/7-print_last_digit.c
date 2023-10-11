@@ -7,12 +7,22 @@
 *
 *Return: Always 0 (success)
 */
-int print_last_digit(int nb)
-{
-	int last_digit;
+#include <stdio.h>
 
-	last_digit = nb % 10;
-	_putchar('0' + last_digit);
-	return (last_digit);
+/**
+ * main - Prints the lowercase alphabet in reverse.
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+	char letter;
+
+	for (letter = 'z'; letter >= 'a'; letter--)
+		putchar(letter);
+
+	putchar('\n');
+
+	return (0);
 }
 
