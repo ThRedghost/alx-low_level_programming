@@ -22,3 +22,4 @@ int main(void)
 	printf("The sum of multiples of 3 or 5 below %d is: %d\n", limit, sum);
 	return (0);
 }
+
