@@ -1,16 +1,7 @@
-#include "main.h"
-/**
-*print_last_digit - entry point
-*
-*Description : print last digit of a number
-* @nb : variable
-*
-*Return: Always 0 (success)
-*/
 #include <stdio.h>
 
 /**
- * main - Prints the lowercase alphabet in reverse.
+ * main - Pints the lowercase alphabet in reverse.
  *
  * Return: Always 0.
  */
