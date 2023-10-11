@@ -1,0 +1,1 @@
+direcory to learn about function in c
