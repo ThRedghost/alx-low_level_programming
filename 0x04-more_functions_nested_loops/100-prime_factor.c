@@ -1,50 +1,39 @@
 #include <stdio.h>
 #include <math.h>
-/**
- *largestPrimeFactor - calculer the l prime number
- *description : calculer le nombre prime
- *@n : the  number
- *Return: Always 0 (success)
- */
 
-long largestPrimeFactor(long n)
+/**
+ * main - finds and prints the largest prime factor of the number 612852475143
+ * followed by a new line
+ * Return: Always 0 (Success)
+ */
+int main(void)
 {
-	long largestFactor = 0;
+	long int n;
+	long int max;
+	long int i;
+
+	n = 612852475143;
+	max = -1;
 
 	while (n % 2 == 0)
 	{
-		largestFactor = 2;
-		n = n / 2;
+		max = 2;
+		n /= 2;
 	}
 
-	long i;
-
-	for (i = 3; i <= (n ^ (1 / 2)); i = i + 2)
+	for (i = 3; i <= sqrt(n); i = i + 2)
 	{
 		while (n % i == 0)
 		{
-			largestFactor = i;
+			max = i;
 			n = n / i;
 		}
 	}
+
 	if (n > 2)
-	{
-		largestFactor = n;
-	}
-	return (largestFactor);
-}
-/**
- * main - entry point
- * Description : entry point
- *Return: Always 0 (success)
- */
+		max = n;
 
-int main(void)
-{
-	long number = 612852475143;
-	long largestFactor = largestPrimeFactor(number);
-
-	printf("%ld\n", largestFactor);
+	printf("%ld\n", max);
 
 	return (0);
 }
