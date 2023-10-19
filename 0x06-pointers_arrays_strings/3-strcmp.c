@@ -8,25 +8,17 @@
  * Return: less than 0 if s1 is less than s2, 0 if they're equal,
  * more than 0 if s1 is greater than s2
  */
-
 int _strcmp(char *s1, char *s2)
 {
-	int i, diff, len;
-
-	len = strlen(s1);
-
-	for (i = 0; i < len; i++)
+	while (*s1 == *s2)
 	{
-		if (s1[i] != s2[i])
+		if (*s1 == '\0')
 		{
-			diff = s1[i] - s2[i];
-			return (diff);
+			return (0);
 		}
-		else
-		{
-			diff = s1[i];
-			return (diff);
-		}
+		s1++;
+		s2++;
 	}
+	return (*s1 - *s2);
 }
 
