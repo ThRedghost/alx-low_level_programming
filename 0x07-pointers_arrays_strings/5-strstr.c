@@ -1,47 +1,28 @@
-#include"main.h"
+#include "main.h"
+#include <stdio.h>
+
 /**
-* _strspn - function
-* Discription : this function scan every character of s with caracter of accept from the begining until it
-* count eather a null character ("end of string") or count a character that dosent exinst in s . 
-* @s : striing 1 
-* @accept : string 2 
-*
-* return : value of difference
-*/
+ * *_strstr - locates a substring
+ * @haystack: string to search in
+ * @needle: substring to look for
+ *
+ * Return: pointer to the beginning of the located substring
+ * or NULL if the substring is not found
+ */
 char *_strstr(char *haystack, char *needle)
 {
-	int len1, len2, i, ref, j = 0;
+	int i, j;
 
-
-	len1 = strlen(haystack);
-	len2 = strlen(needle);
-
-
-	for (i = 0; i < len1; i++)
+	for (i = 0; haystack[i] != '\0'; i++)
 	{
-		if (needle[j] == haystack[i])
+		for (j = 0; needle[j] != '\0'; j++)
 		{
-			ref = i;
-			while (needle[j] == haystack[i])
-			{
-				if (j == (len2 - 1))
-				{
-					return (&haystack[ref]);
-				}
-				j++;
-				i++;
-			}
-			return (NULL);
+			if (haystack[i + j] != needle[j])
+				break;
 		}
-		else
-		{
-			if (j == (len2 - 1))
-			{
-				return (NULL);
-			}
-
-		}
+		if (!needle[j])
+			return (&haystack[i]);
 	}
-
+	return (NULL);
 }
 

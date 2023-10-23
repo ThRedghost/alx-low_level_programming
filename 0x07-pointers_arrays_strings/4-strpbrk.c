@@ -1,37 +1,30 @@
-#include"main.h"
+#include "main.h"
+#include <stdio.h>
+
 /**
-* _strspn - function
-* Discription : this function scan every character of s with caracter of accept from the begining until it
-* count eather a null character ("end of string") or count a character that dosent exinst in s . 
-* @s : striing 1 
-* @accept : string 2 
-* 
-* return : value of difference
-*/
+ * *_strpbrk - searches a string for any of a set of bytes
+ * @s: string to search
+ * @accept: stringcontaining the bytes to look for
+ *
+ * Return: pointer to the byte in s that matches one of the bytes in accept
+ * or NULL if no such byte is found
+ */
 char *_strpbrk(char *s, char *accept)
 {
-	int len1, len2, i, j;
-	unsigned int leng = 0;
+	int i, j;
 
-	len1 = strlen(s);
-	len2 = strlen(accept);
-	for (i = 0; i < len1; i++)
+	for (i = 0; *s != '\0'; i++)
 	{
-		for (j = 0; j < len2; j++)
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-			if (s[i] == accept[j])
+			if (*s == accept[j])
 			{
-				return (&s[i]);
-			}
-			else
-			{
-				if (j == (len2 - 1) && i == (len1 -1))
-				{
-					return (NULL);
-				}
-
+				return (s);
 			}
 		}
+		s++;
 	}
+
+	return (NULL);
 }
 

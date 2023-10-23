@@ -1,28 +1,29 @@
 #include "main.h"
-/**
-* _strchr - function  search fora char
-* @s : striing 1
-* @c : string 2
-*
-* Return: value of difference
-*/
+#include <stdio.h>
 
+/**
+ * *_strchr - locates a character in a string
+ * @s: string to search
+ * @c: char to find
+ *
+ * Return: a pointer to the first occurrence of the character
+ * c in the string s, or NULL if the character is not found
+ */
 char *_strchr(char *s, char c)
 {
-	int len = 0, i = 0;
+		int a;
 
-
-	len = strlen(s);
-
-	for (i = 0; i < len; i++)
-	{
-		if (s[i] == c)
+		while (1)
 		{
-			return (&s[i]);
+			a = *s++;
+			if (a == c)
+			{
+				return (s - 1);
+			}
+			if (a == 0)
+			{
+				return (NULL);
+			}
 		}
-
-	}
-
-	return (NULL);
 }
 

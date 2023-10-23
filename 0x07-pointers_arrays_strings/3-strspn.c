@@ -1,44 +1,36 @@
-#include"main.h"
+#include "main.h"
+
 /**
-* _strspn - function
-* Discription : this function scan every character of s with caracter of accept from the begining until it
-* count eather a null character ("end of string") or count a character that dosent exinst in s . 
-* @s : striing 1 
-* @accept : string 2 
-* 
-* return : value of difference
-*/
+ * *_strspn - gets the length of a prefix substring
+ * @s: string to evaluate
+ * @accept: string containing the list of characters to match in s
+ *
+ * Return: the number of bytes in the initial segment
+ * of s which consist only of bytes from accept
+ */
 unsigned int _strspn(char *s, char *accept)
 {
-	int len1, len2, i, j;
-	unsigned int leng = 0;
+	int i, j, f, flag;
 
-	len1 = strlen(s);
-	len2 = strlen(accept);
-	for (i = 0; i < len1; i++)
+	f = 0;
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; j < len2; j++)
+		flag = 0;
+		for (j = 0; accept[j] != '\0'; j++)
 		{
 			if (s[i] == accept[j])
 			{
-				leng++;
-				break;
+				f++;
+				flag = 1;
 			}
-			else
-			{
-				if (j == (len2 - 1))
-				{
-					return (leng);
-				}
-				continue;
-
-			}
-            
 		}
-        
+		if (flag == 0)
+		{
+			return (f);
+		}
 	}
 
-
-	return (leng);
+	return (0);
 }
 
