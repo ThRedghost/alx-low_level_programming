@@ -1,44 +1,27 @@
 #include "main.h"
 /**
- * wildcmp - the function
- * Description : function that test if word is a palindrome
- * @s1 : string1
- * @s2 : string2
- * Return : void
-*/
+ * wildcmp - compares two strings and returns 1
+ * if the strings can be considered identical,
+ * otherwise return 0.
+ * @s1: the normal string
+ * @s2: the special string containing "*"
+ *
+ * Return: 1 if identical, else 0
+ */
 int wildcmp(char *s1, char *s2)
 {
-    int i, len1, len2, index, stop;
+	if (*s2 == '\0' && *s1 == '\0')
+		return (1);
 
-    len1 = strlen(s1);
-    len2 = strlen(s2);
+	if (*s2 == '*' && *(s2 + 1) != '\0' && *s1 == '\0')
+		return (0);
 
-    if (len1 != len2)
-    {
-        return (0);
-    }
+	if (*s1 == *s2)
+		return (wildcmp(s1 + 1, s2 + 1));
 
-    for (i = 0; i < len1; i++)
-    {
-        index = len1 - 1 - i;
-        if (s1[i] == s2[i] || s2[i] == '*')
-        {
-            continue;
-        }
-        else
-            return (0);
-    }
-    return (1);
+	if (*s2 == '*')
+		return (wildcmp(s1, s2 + 1) || wildcmp(s1 + 1, s2));
+
+	return (0);
 }
-int main(void)
-{
-    int x;
-    char t1[10] = "salah";
-    char t2[10] = "sala*";
-    x = wildcmp(t1, t2);
-    if (x == 0)
-        printf("not identical\n");
-    else
-        printf("identical\n");
-    return (0);
-}
+
