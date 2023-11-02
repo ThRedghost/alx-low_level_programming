@@ -1,20 +1,25 @@
 #include "main.h"
 /**
 * *string_nconcat - function that allocat memory and put a two string in
-* it 
-* @*s1 : first string
-* @*s2 : second string
+* it
+* @s1 : first string
+* @s2 : second string
 * @n : number
-*Return : a ptr
+* Return: pointer to the resulting string
 */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ptr_alloc;
 	unsigned int len,  i, len2;
 
-    //the check
-	if (s1 == NULL) strcpy(s1, "");
-	if (s2 == NULL) strcpy(s2, "");
+	if (s1 == NULL)
+	{
+		strcpy(s1, "");
+	}
+
+	if (s2 == NULL)
+		strcpy(s2, "");
+
 	len2 = strlen(s2);
 	if (n >= len2)
 	{
@@ -23,7 +28,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	len = strlen(s1) + strlen(s2) + 1;
 
-	ptr_alloc = (char*)malloc(len * sizeof(char));
+	ptr_alloc = (char *)malloc(len * sizeof(char));
 
 	if (ptr_alloc != NULL)
 	{
@@ -36,8 +41,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		printf("fail to allocate memoery\n");
 		free(ptr_alloc);
-		return(NULL);
+		return (NULL);
 	}
-	return(ptr_alloc);
+	return (ptr_alloc);
 }
 
