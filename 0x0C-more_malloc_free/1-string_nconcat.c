@@ -35,11 +35,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		strcpy(ptr_alloc, s1);
 		strncat(ptr_alloc, s2, n);
 		strcat(ptr_alloc, "\0");
-		printf("ptr not null\n");
 	}
 	else
 	{
-		printf("fail to allocate memoery\n");
 		free(ptr_alloc);
 		return (NULL);
 	}

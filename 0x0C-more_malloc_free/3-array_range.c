@@ -21,7 +21,6 @@ int *array_range(int min, int max)
 	for (i = 0; i < element; i++)
 	{
 		*ptr = min + i;
-		printf("*ptr = %d\n", *ptr);
 		ptr++;
 
 	}
