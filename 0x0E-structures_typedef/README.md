@@ -1,1 +1,1 @@
-Directory for learing structe
+sh: 1: q: not found
